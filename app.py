@@ -11,7 +11,7 @@ from numpy.linalg import norm
 import streamlit as st
 
 st.set_page_config(page_title="Fashion Recommendation System")
-st.header('👗 Fashion Recommendation System')
+st.header('👗Fashion Recommendation System')
 st.markdown("Upload a fashion product image and get similar recommendations!")
 
 image_features = pkl.load(open('Images_features.pkl', 'rb'))
