@@ -29,6 +29,19 @@ To test the application locally:
 git clone https://github.com/NikaL25/fashion_products_recommendation.git
 cd fashion_products_recommendation
 
+Make sure you have **Python 3.11** installed.
+
+Create a virtual environment:
+
+```bash
+python3.11 -m venv venv
+
+On macOS/Linux:
+source venv/bin/activate
+
+
+On Windows:
+.\venv\Scripts\activate
 
 ### 2. Clone the Repository
 
