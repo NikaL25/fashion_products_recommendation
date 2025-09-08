@@ -17,6 +17,7 @@ st.markdown("Upload a fashion product image and get similar recommendations!")
 image_features = pkl.load(open('Images_features.pkl', 'rb'))
 filenames = pkl.load(open('filenames.pkl', 'rb'))
 
+
 def extract_features_from_images(image_path, model):
     img = image.load_img(image_path, target_size=(224, 224))
     img_array = image.img_to_array(img)
@@ -26,14 +27,17 @@ def extract_features_from_images(image_path, model):
     norm_result = result / norm(result)
     return norm_result
 
-base_model = ResNet50(weights='imagenet', include_top=False, input_shape=(224, 224, 3))
+
+base_model = ResNet50(weights='imagenet', include_top=False,
+                      input_shape=(224, 224, 3))
 base_model.trainable = False
 model = tf.keras.models.Sequential([
     base_model,
     GlobalMaxPooling2D()
 ])
 
-neighbors = NearestNeighbors(n_neighbors=6, algorithm='brute', metric='euclidean')
+neighbors = NearestNeighbors(
+    n_neighbors=6, algorithm='brute', metric='euclidean')
 neighbors.fit(image_features)
 
 upload_file = st.file_uploader("📤 Upload Image", type=['jpg', 'jpeg', 'png'])

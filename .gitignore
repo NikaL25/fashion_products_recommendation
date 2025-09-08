@@ -28,7 +28,6 @@ env/
 *.h5
 
 # Model files
-*.pkl
 *.joblib
 *.h5
 *.pt
